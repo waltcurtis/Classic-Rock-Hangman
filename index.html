@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title> We will Rock You </title>
+</head>
+
+<body>
+    <!-- silly workaround to make the real song autoplay in chrome -->
+    <iframe src="assets/songs/1-second-of-silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+    <audio id="myAudio"  autoplay >
+        <source id="audioSrc" src="assets/songs/wewillrockyou.mp3" type="audio/mpeg" >
+        browser not supporting audio
+    </audio>
+
+    <h1> Guess the Classic Rock Artist </h1>
+
+    <div class="score">
+        <p> 
+            score: <br/>
+            <pre>    wins: <span id="nbrWins"> # wins </span> </pre> 
+            <pre>    losses: <span id="nbrLosses"> # losses </span> </pre>
+        </p>
+    </div>
+    <div class="playboard">
+        <p id="msg"> Press any key to get started ...   <!-- lame text--> </p>
+        <p> 
+            Artist:  <span id="artist" > " " </span> <br/>
+            <br/>
+            Letters Guessed:  <span id="lettersGuessed"> " " </span> <br/>
+            Remaining Guesses: <span id="nbrGuessesRemaining"> # guesses remaining </span>
+        </p>
+    </div>
+
+    <script src="assets/javascript/artists.js"></script>
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
