@@ -1,37 +1,53 @@
 // set screen pointer vars
-var winsId = document.getElementById("nbrWins");
-var lossesId = document.getElementById("nbrLosses");
-var artistId = document.getElementById("artist");
-var lettersGuessedId = document.getElementById("lettersGuessed");
-var guessesRemainingId = document.getElementById("nbrGuessesRemaining");
-var msgId = document.getElementById("msg");
-var sndId = document.getElementById("myAudio");
-var srcId = document.getElementById("audioSrc");
+var winsId             = document.getElementById("nbrWins"),
+    lossesId           = document.getElementById("nbrLosses"),
+    artistId           = document.getElementById("artist"),
+    playboardId        = document.getElementById("playboard"),
+    scoreId            = document.getElementById("score"),
+    lettersGuessedId   = document.getElementById("lettersGuessed"),
+    guessesRemainingId = document.getElementById("nbrGuessesRemaining"),
+    msgId              = document.getElementById("msg"),
+    contMsgId          = document.getElementById("contMsg"),
+    sndId              = document.getElementById("myAudio"),
+    srcId              = document.getElementById("audioSrc");
+
+// messages
+var msg ="", 
+    winMsg = "<strong> Congratz - you win !! </strong> ",
+    lossMsg = "<strong> You have run out of guesses - You Lose!! </strong>",
+    contMsg = "Press any key to play again";
 
 
 // integers
-var wins=0, losses=0, guessesRemaining;
+var wins=0, 
+    losses=0, 
+    guessesRemaining;
 
 // objects 
 var artist;
 
 // arrays
-var lettersGuessed = [], correctLetters = []; 
+var lettersGuessed = [], 
+    correctLetters = []; 
 
 // strings 
-var msg, artistStr,
-    winMsg = "Congratz! - You Win! <p> Press ";
+var artistStr;
 
 // booleans
-var cont = true; gameComplete = true;
+var gameComplete = true;
 
 // ===================================================================
 
 
-
 function initGame() {
+    msg = ""; 
+    
+    contMsgId.style     = "display: none";
+    contMsgId.textContent = contMsg;
 
-    guessesRemaining = 12;
+    playboardId.style   = "display: block";
+
+    guessesRemaining = 15;
     lettersGuessed = [];
     correctLetters = [];
 
@@ -51,33 +67,35 @@ function playGame(guess) {
     //     wins++
     //     game-end
 
-    msg = "";
+    if (gameComplete) {
+        initGame();
+    } else {
 
-    if (checkGuess(guess)) {
-        correctLetters.push(guess);
-        msg = "Correct!!";
-        if (correctLetters.length == artist.uniqueLtrs.length) {
-            wins++;
-            gameComplete = true;
-            msg = "Congratz - you win !!";
+        if (checkGuess(guess)) {
+            correctLetters.push(guess);
+            msg = "Correct!!";
+            if (correctLetters.length == artist.uniqueLtrs.length) {
+                wins++;
+                msg = winMsg;
+                endGame();
+            }
+        }
+
+        // add letter to guessedLetters array
+        lettersGuessed.push(guess);
+
+        // decrement guessesRemaining
+        guessesRemaining--;
+
+        // if attempts exceeds max
+        //     losses++
+        //     game-end
+        if (guessesRemaining < 1) {
+            losses++;
+            msg = lossMsg;
+            endGame();
         }
     }
-
-    // add letter to guessedLetters array
-    lettersGuessed.push(guess);
-
-    // decrement guessesRemaining
-    guessesRemaining--;
-
-    // if attempts exceeds max
-    //     losses++
-    //     game-end
-    if (guessesRemaining < 1) {
-        losses++;
-        gameComplete = true;
-        msg = "You have run out of guesses - You Lose!!";
-    }
-
 }
 
 function updateScreen () {
@@ -89,13 +107,8 @@ function updateScreen () {
     lossesId.textContent = losses;
     guessesRemainingId.textContent = guessesRemaining;
     lettersGuessedId.textContent = lettersGuessed;
-    msgId.textContent = msg;
+    msgId.innerHTML = msg;
 
-    if (gameComplete) {
-        srcId.src = artist.song;
-        sndId.load();
-        sndId.play();
-    }
 }
 
 // return str, using artist name and replacing unknown characters with '_' (underscore)
@@ -121,13 +134,23 @@ function checkGuess (ltr) {
     return (artist.uniqueLtrs.includes (ltr));
 }
 
+function endGame() {
+    gameComplete = true;
+       
+    srcId.src = artist.song;
+    sndId.load();
+    sndId.play();
+
+    contMsgId.style = "display: block";
+}
+
 document.onkeyup = function (event) { 
     var guess = event.key;
     guess = guess.toLowerCase();
     
-    if (gameComplete) initGame();
-
-    if (/[a-z]/.test(guess)) {
+    if (gameComplete) {         // if game is complete - accept any letter to start the game
+        playGame(); 
+    } else if (/[a-z]/.test(guess)) {
         if (guess.length > 1) {
             msg = guess + " is not a valid character"; 
         } else if (lettersGuessed.includes(guess)) { 
@@ -141,4 +164,3 @@ document.onkeyup = function (event) {
 
     updateScreen();
 }
-

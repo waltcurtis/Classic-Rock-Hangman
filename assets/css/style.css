@@ -1,0 +1,25 @@
+body{ 
+	height: 100%;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+#playboard {
+	display: none;
+	height: 340px;
+}
+
+.bg {
+	background-image: url("../images/Album-collage.jpg");
+
+	height: 50%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bg-antwhite {
+	background-color: antiquewhite;
+
+}

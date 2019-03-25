@@ -2,36 +2,43 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
-  <title> We will Rock You </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit="no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+
+    <title> We will Rock You </title>
 </head>
 
-<body>
+<body class="container bg ">
     <!-- silly workaround to make the real song autoplay in chrome -->
-    <iframe src="assets/songs/1-second-of-silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+    <iframe src="assets/songs/1-second-of-silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>  
 
-    <audio id="myAudio"  autoplay >
+    <audio id="myAudio"  autoplay " >
         <source id="audioSrc" src="assets/songs/wewillrockyou.mp3" type="audio/mpeg" >
         browser not supporting audio
     </audio>
 
-    <h1> Guess the Classic Rock Artist </h1>
+    <h1 class="bg-antwhite my-4 p-3 text-center "> Guess the Classic Rock Artist </h1>
 
-    <div class="score">
-        <p> 
-            score: <br/>
-            <pre>    wins: <span id="nbrWins"> # wins </span> </pre> 
-            <pre>    losses: <span id="nbrLosses"> # losses </span> </pre>
-        </p>
-    </div>
-    <div class="playboard">
-        <p id="msg"> Press any key to get started ...   <!-- lame text--> </p>
-        <p> 
+    <div id="playboard" class="bg-antwhite">
+        <p class="p-4"> 
             Artist:  <span id="artist" > " " </span> <br/>
             <br/>
-            Letters Guessed:  <span id="lettersGuessed"> " " </span> <br/>
-            Remaining Guesses: <span id="nbrGuessesRemaining"> # guesses remaining </span>
+            Remaining Guesses: <span id="nbrGuessesRemaining">  </span> <br/>
+            Letters Guessed:  <span id="lettersGuessed">  </span> <br/>
         </p>
+        <p class="p-4"> 
+            score: <br/>
+            <pre>    wins: <span id="nbrWins">  </span> </pre> 
+            <pre>    losses: <span id="nbrLosses">  </span> </pre>
+        </p>
+    </div>
+    <div class="bg-antwhite my-3 p-4">
+        <p id="contMsg" >
+            Press any key to get started ...
+        </p>    
     </div>
 
     <script src="assets/javascript/artists.js"></script>
