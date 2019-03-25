@@ -3,7 +3,6 @@ var winsId             = document.getElementById("nbrWins"),
     lossesId           = document.getElementById("nbrLosses"),
     artistId           = document.getElementById("artist"),
     playboardId        = document.getElementById("playboard"),
-    scoreId            = document.getElementById("score"),
     lettersGuessedId   = document.getElementById("lettersGuessed"),
     guessesRemainingId = document.getElementById("nbrGuessesRemaining"),
     msgId              = document.getElementById("msg"),
@@ -12,11 +11,11 @@ var winsId             = document.getElementById("nbrWins"),
     srcId              = document.getElementById("audioSrc");
 
 // messages
-var msg ="", 
+var msg = "", 
+    goodGuess = "Correct!  Good guess.";
     winMsg = "<strong> Congratz - you win !! </strong> ",
     lossMsg = "<strong> You have run out of guesses - You Lose!! </strong>",
     contMsg = "Press any key to play again";
-
 
 // integers
 var wins=0, 
@@ -73,7 +72,7 @@ function playGame(guess) {
 
         if (checkGuess(guess)) {
             correctLetters.push(guess);
-            msg = "Correct!!";
+            msg = goodGuess;
             if (correctLetters.length == artist.uniqueLtrs.length) {
                 wins++;
                 msg = winMsg;
@@ -107,7 +106,8 @@ function updateScreen () {
     lossesId.textContent = losses;
     guessesRemainingId.textContent = guessesRemaining;
     lettersGuessedId.textContent = lettersGuessed;
-    msgId.innerHTML = msg;
+    if (msg.length > 1)  msgId.innerHTML = msg;
+    if (contMsg.length > 1)  contMsgId.innerHTML = contMsg;
 
 }
 

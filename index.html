@@ -19,26 +19,49 @@
         <source id="audioSrc" src="assets/songs/wewillrockyou.mp3" type="audio/mpeg" >
         browser not supporting audio
     </audio>
-
-    <h1 class="bg-antwhite my-4 p-3 text-center "> Guess the Classic Rock Artist </h1>
-
-    <div id="playboard" class="bg-antwhite">
-        <p class="p-4"> 
-            Artist:  <span id="artist" > " " </span> <br/>
-            <br/>
-            Remaining Guesses: <span id="nbrGuessesRemaining">  </span> <br/>
-            Letters Guessed:  <span id="lettersGuessed">  </span> <br/>
-        </p>
-        <p class="p-4"> 
-            score: <br/>
-            <pre>    wins: <span id="nbrWins">  </span> </pre> 
-            <pre>    losses: <span id="nbrLosses">  </span> </pre>
-        </p>
+    <div class="row">
+        <h1 class="col-8 offset-2  bg-ltsalmon my-4 py-3 text-center "> Guess the Classic Rock Artist </h1>
     </div>
-    <div class="bg-antwhite my-3 p-4">
-        <p id="contMsg" >
-            Press any key to get started ...
-        </p>    
+
+    <div id="playboard" class="bg-antwhite ">
+        <div class="row align-bottom">
+            <div class="pt-5 pb-3 col-4 offset-2 h2"> Artist: </div>
+            <div id="artist" class="pt-5 pb-3 px-2 col-5 h2" > </div>
+        </div>
+        <br/>
+        
+        <div class="row">
+            <div class="col-8 offset-2" id="msg"> </div>
+        </div>
+
+        <div class="row  pt-4">
+            <div class="col-4 offset-2 "> Remaining Guesses: </div> 
+            <div id="nbrGuessesRemaining" class="p-2 col-4" > </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-4 offset-2"> Letters Guessed:  </div>  
+            <div id="lettersGuessed" class="p-2 col-4">  </div>
+        </div>
+        <br/>
+        
+        <div class="row pt-3">
+            <div class="col-8 offset-2"> score: </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-3"> wins: </div> 
+            <div id="nbrWins" class="col-6"> </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-3"> losses: </div>
+            <div id="nbrLosses" class="col-6">  </div>
+        </div>
+    </div>
+
+    <div class="row my-4 py-2">
+        <div class="col-8 offset-2 bg-ltsalmon py-2 h4">
+            <span id="contMsg" > Press any key to get started ... </span>
+        </div>
     </div>
 
     <script src="assets/javascript/artists.js"></script>
