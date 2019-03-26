@@ -39,12 +39,13 @@ var gameComplete = true;
 
 
 function initGame() {
-    msg = ""; 
+    msg = " &nbsp "; 
     
     contMsgId.style     = "display: none";
-    contMsgId.textContent = contMsg;
-
+    contMsgId.textContent = " &nbsp ";
+    
     playboardId.style   = "display: block";
+    instructions.style  = "display: none";
 
     guessesRemaining = 15;
     lettersGuessed = [];
@@ -106,8 +107,8 @@ function updateScreen () {
     lossesId.textContent = losses;
     guessesRemainingId.textContent = guessesRemaining;
     lettersGuessedId.textContent = lettersGuessed;
-    if (msg.length > 1)  msgId.innerHTML = msg;
-    if (contMsg.length > 1)  contMsgId.innerHTML = contMsg;
+    msgId.innerHTML = msg;
+    contMsgId.innerHTML = contMsg;
 
 }
 
@@ -141,6 +142,7 @@ function endGame() {
     sndId.load();
     sndId.play();
 
+    contMsgId.textContent = contMsg;
     contMsgId.style = "display: block";
 }
 

@@ -20,7 +20,22 @@
         browser not supporting audio
     </audio>
     <div class="row">
-        <h1 class="col-8 offset-2  bg-ltsalmon my-4 py-3 text-center "> Guess the Classic Rock Artist </h1>
+        <h1 class="col-8 offset-2  bg-sienna my-4 py-3 text-center "> Guess the Classic Rock Artist </h1>
+    </div>
+
+    <div id="instructions" class="bg-antwhite p-4">
+        <p> 
+            To play this game:
+            <ol>
+                <li> Guess a letter which might be within the artist's name (band or individual) and press that key </li>
+                <li> If that letter does exist in the artist's name, the name will be updated with the letter in the positions where it is found</li>
+                <li> The letters guessed will be displayed as you play </li>
+                <li> If you guess all the letters in the artist name, within 15 tries, you win</li>
+                <li> If you cannot guess the artist (by guessing all letters in their name) within 15 tries, you loss </li>
+            </ol>
+
+            Good luck and enjoy!
+        </p>
     </div>
 
     <div id="playboard" class="bg-antwhite ">
@@ -34,14 +49,14 @@
             <div class="col-8 offset-2" id="msg"> </div>
         </div>
 
-        <div class="row  pt-4">
-            <div class="col-4 offset-2 "> Remaining Guesses: </div> 
-            <div id="nbrGuessesRemaining" class="p-2 col-4" > </div> 
+        <div class="row pt-4 align-bottom">
+            <div class="col-4 offset-2 bg-light"> Remaining Guesses: </div> 
+            <div id="nbrGuessesRemaining" class="col-4 bg-info" > </div> 
         </div>
 
-        <div class="row">
+        <div class="row align-bottom">
             <div class="col-4 offset-2"> Letters Guessed:  </div>  
-            <div id="lettersGuessed" class="p-2 col-4">  </div>
+            <div id="lettersGuessed" class="col-4">  </div>
         </div>
         <br/>
         
@@ -59,7 +74,7 @@
     </div>
 
     <div class="row my-4 py-2">
-        <div class="col-8 offset-2 bg-ltsalmon py-2 h4">
+        <div class="col-8 offset-2 bg-sienna py-2 h4">
             <span id="contMsg" > Press any key to get started ... </span>
         </div>
     </div>
