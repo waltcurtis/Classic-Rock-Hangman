@@ -1,24 +1,30 @@
 body{ 
-	height: 100%;
+	background-image: url("../images/ClassicRock.jpg");
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	height: 800px;
 	font-weight: 600;
 	line-height: 20px;
 }
 
-#playboard {
-	display: none;
-	height: 380px;
+header h1 {
+	margin: 50px 0;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	line-height: 6rem;
+	font-size: 5rem;
+	font-weight: bold;
+	text-shadow: -1px -1px 0 #000,
+				  1px -1px 0 #000,
+				 -1px  1px 0 #000,
+				  1px  1px 0 #000;
 }
 
-.bg {
-	background-image: url("../images/Album-collage.jpg");
-
-	height: 100%;
-
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+#playboard {
+	display: none;
+	height: 400px;
 }
 
 .bg-antwhite { background-color: antiquewhite;  }
-.bg-sienna { background-color: sienna; color: white; }
-
+.bg-brown { background-color: brown; color: white; }

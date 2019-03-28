@@ -11,7 +11,7 @@
     <title> We will Rock You </title>
 </head>
 
-<body class="container bg ">
+<body class="container">
     <!-- silly workaround to make the real song autoplay in chrome -->
     <iframe src="assets/songs/1-second-of-silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>  
 
@@ -19,8 +19,13 @@
         <source id="audioSrc" src="assets/songs/wewillrockyou.mp3" type="audio/mpeg" >
         browser not supporting audio
     </audio>
+
+    <header> 
+        <h1 class="text-center text-white text-uppercase ">  We Will Rock You!  </h1> 
+    </header>
+    
     <div class="row">
-        <h1 class="col-8 offset-2  bg-sienna my-4 py-3 text-center "> Guess the Classic Rock Artist </h1>
+        <h1 class="col-8 offset-2  bg-brown my-4 py-3 text-center "> Guess the Classic Rock Artist </h1>
     </div>
 
     <div id="instructions" class="bg-antwhite p-4">
@@ -74,7 +79,7 @@
     </div>
 
     <div class="row my-4 py-2">
-        <div class="col-8 offset-2 bg-sienna py-2 h4">
+        <div class="col-8 offset-2 bg-brown py-2 h4">
             <span id="contMsg" > Press any key to get started ... </span>
         </div>
     </div>

@@ -12,7 +12,8 @@ var winsId             = document.getElementById("nbrWins"),
 
 // messages
 var msg = "", 
-    goodGuess = "Correct!  Good guess.";
+    continueMsg = "",
+    goodGuess = "Correct!  Good guess.",
     winMsg = "<strong> Congratz - you win !! </strong> ",
     lossMsg = "<strong> You have run out of guesses - You Lose!! </strong>",
     contMsg = "Press any key to play again";
@@ -39,10 +40,8 @@ var gameComplete = true;
 
 
 function initGame() {
-    msg = " &nbsp "; 
-    
-    contMsgId.style     = "display: none";
-    contMsgId.textContent = " &nbsp ";
+    msg = "  &nbsp; "; 
+    continueMsg = " &nbsp; ";
     
     playboardId.style   = "display: block";
     instructions.style  = "display: none";
@@ -60,6 +59,8 @@ function initGame() {
 }
 
 function playGame(guess) {
+    msg = " &nbsp ";  // init message from last round 
+    
     // user guesses letter in artist name (ensure not one previously selected)
     // check if letter is in name
     //   if so, add letter to correctLetters array
@@ -108,8 +109,7 @@ function updateScreen () {
     guessesRemainingId.textContent = guessesRemaining;
     lettersGuessedId.textContent = lettersGuessed;
     msgId.innerHTML = msg;
-    contMsgId.innerHTML = contMsg;
-
+    contMsgId.innerHTML = continueMsg;
 }
 
 // return str, using artist name and replacing unknown characters with '_' (underscore)
@@ -142,8 +142,7 @@ function endGame() {
     sndId.load();
     sndId.play();
 
-    contMsgId.textContent = contMsg;
-    contMsgId.style = "display: block";
+    continueMsg = contMsg;
 }
 
 document.onkeyup = function (event) { 
