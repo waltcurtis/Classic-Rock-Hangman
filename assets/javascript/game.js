@@ -79,6 +79,7 @@ function playGame(guess) {
                 wins++;
                 msg = winMsg;
                 endGame();
+                return;
             }
         }
 
@@ -97,6 +98,7 @@ function playGame(guess) {
             endGame();
         }
     }
+    return;
 }
 
 function updateScreen () {
