@@ -14,5 +14,5 @@ Main contents of this game are:
 2. If that letter does exist in the artist's name, the name will be updated with the letter in the positions where it is found
 3. The letters guessed will be displayed as you play 
 4. If you guess all the letters in the artist name, within 15 tries, you win
-5. If you cannot guess the artist (by guessing all letters in their name) within 15 tries, you loss 
+5. If you cannot guess the artist (by guessing all letters in their name) within 15 tries, you lose 
 
